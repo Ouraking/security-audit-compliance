@@ -13,7 +13,7 @@ This project evaluates the security posture of a healthcare IT company responsib
 | Control | Risk Level | Issue |
 |---------|-----------|-------|
 | **AC-6 (Least Privilege)** | HIGH | Users across departments have excessive permissions and administrative privileges |
-| **CA-7 (Continuous Monitoring)** | HIGH | No real-time monitoring — operating in reactive mode only |
+| **CA-7 (Continuous Monitoring)** | HIGH | No real-time monitoring, operating in reactive mode only |
 | **RA-3 (Risk Assessment)** | HIGH | Outdated security documentation; no formal risk assessment process |
 | **CA-5 (Plan of Action & Milestones)** | MODERATE | No structured plan to track risk mitigation activities |
 | **RA-7 (Risk Response)** | MODERATE | Informal risk response slowing decision-making |
