@@ -101,10 +101,44 @@ Designed compliance implementation for credit card payment processing covering t
 - **Compliance:** NIST CSF, PCI-DSS Assessment Tools
 - **Architecture:** Defense-in-Depth, Zero Trust
 
+## Audit Methodology
+
+The assessment followed a structured four-phase approach:
+
+1. **Scope Definition:** Identified all systems processing PII (doctor credentials, SSNs, home addresses) and mapped data flows between the organization, healthcare providers, and federal government portals.
+2. **Control Baseline Mapping:** Mapped the organization's existing controls against NIST SP 800-53 Rev. 5. Each control family was evaluated for implementation status: Implemented, Partially Implemented, or Not Implemented.
+3. **Gap Analysis & Risk Scoring:** Gaps were scored using NIST SP 800-30 Rev. 1 methodology — combining likelihood of exploitation with potential impact to determine risk level (High, Moderate, Low).
+4. **Remediation Prioritization:** Controls were prioritized based on (a) risk score, (b) regulatory exposure, and (c) implementation complexity. Quick wins with high risk reduction were scheduled first.
+
+## Risk Prioritization Rationale
+
+### Why AC-6 (Least Privilege) was prioritized first
+Excessive permissions were the single highest-risk finding because they create a **force multiplier for every other vulnerability.** A compromised account with admin privileges can disable monitoring (CA-7), alter risk documentation (RA-3), and exfiltrate PII — effectively negating all other controls. Fixing access control first reduces the blast radius of any subsequent breach.
+
+### Why CA-7 (Continuous Monitoring) was second
+The organization operated in **purely reactive mode** — security incidents were only discovered when users reported problems. Without real-time visibility, the mean time to detect (MTTD) was effectively unbounded. SIEM deployment provides the detection capability that makes all other controls auditable and enforceable.
+
+### Why RA-3 (Risk Assessment) before CA-5 and RA-7
+You cannot build a meaningful Plan of Action (CA-5) or Risk Response strategy (RA-7) without first understanding what risks exist. The outdated security documentation meant leadership was making risk decisions based on assumptions rather than data. A formal risk assessment provides the evidence base for all downstream remediation planning.
+
+## Remediation Impact Analysis
+
+| Control Gap | If Left Unaddressed | Regulatory Exposure | Estimated Remediation Cost |
+|------------|-------------------|--------------------|-----------------------------|
+| **AC-6 (Least Privilege)** | Any compromised credential provides full system access; insider threat risk is critical | FISMA non-compliance, potential contract termination | Medium (IAM tooling + quarterly reviews) |
+| **CA-7 (Continuous Monitoring)** | Breaches go undetected for weeks/months; no forensic evidence for incident response | FISMA CA-7, NIST SP 800-137 violation | High (SIEM platform + analyst staffing) |
+| **RA-3 (Risk Assessment)** | Risk decisions based on outdated assumptions; unable to demonstrate due diligence | FISMA RA-3, OMB A-130 reporting failure | Low (assessment engagement + documentation) |
+| **CA-5 (POA&M)** | No tracking of remediation progress; audit findings repeat year-over-year | FISMA audit findings, contract risk | Low (tracking system + process definition) |
+| **RA-7 (Risk Response)** | Ad-hoc risk decisions with no documentation; inconsistent treatment of similar risks | NIST SP 800-39 non-alignment | Low (policy + decision framework) |
+
+## Skills Demonstrated
+
+`Security Auditing` `NIST SP 800-53 Rev. 5` `Risk Assessment (NIST SP 800-30)` `Gap Analysis` `Remediation Planning` `PCI-DSS v4.0 Compliance` `FISMA Compliance` `Access Control Design` `SIEM Architecture` `RACI Matrix Development` `GRC Documentation` `Healthcare Security`
+
 ## Author
 
 **Koffi Jean-Marie Amedjonekou**
-Security Researcher
+Cybersecurity Engineer
 
 ## License
 
