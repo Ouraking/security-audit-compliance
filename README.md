@@ -1,3 +1,5 @@
+<img src="./repo-banner.svg" alt="Security Audit and Compliance: NIST SP 800-53 gap analysis and remediation" width="100%"/>
+
 # Security Audit & Compliance
 
 A comprehensive security framework assessment and remediation plan for a healthcare IT organization processing sensitive provider data as a federal government contractor.
