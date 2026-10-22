@@ -112,6 +112,30 @@ The assessment followed a structured four-phase approach:
 3. **Gap Analysis & Risk Scoring:** Gaps were scored using NIST SP 800-30 Rev. 1 methodology — combining likelihood of exploitation with potential impact to determine risk level (High, Moderate, Low).
 4. **Remediation Prioritization:** Controls were prioritized based on (a) risk score, (b) regulatory exposure, and (c) implementation complexity. Quick wins with high risk reduction were scheduled first.
 
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#101A33','primaryTextColor':'#F2F6FF','primaryBorderColor':'#2DD4BF','lineColor':'#8B97B8','secondaryColor':'#0D1428','tertiaryColor':'#0A0F1E','clusterBkg':'#0A0F1E','clusterBorder':'#24335C','edgeLabelBackground':'#0D1428','fontSize':'14px'}}}%%
+flowchart LR
+    P1["1. Scope definition<br/>PII systems and data flows"] --> P2["2. Control baseline mapping<br/>NIST SP 800-53 Rev. 5"]
+    P2 --> P3["3. Gap analysis and risk scoring<br/>NIST SP 800-30 Rev. 1"]
+    P3 --> P4["4. Remediation prioritization<br/>risk, exposure, complexity"]
+
+    P4 --> ORDER
+
+    subgraph ORDER["Remediation order and why"]
+        direction TB
+        C1["AC-6 Least Privilege<br/>force multiplier for every other gap"]
+        C2["CA-7 Continuous Monitoring<br/>makes all controls auditable"]
+        C3["RA-3 Risk Assessment<br/>evidence base for planning"]
+        C4["CA-5 POA&M, RA-7 Risk Response<br/>built on the assessment"]
+        C1 --> C2 --> C3 --> C4
+    end
+
+    classDef phase fill:#101A33,stroke:#2DD4BF,stroke-width:2px,color:#F2F6FF
+    classDef first fill:#0D1428,stroke:#F5B942,stroke-width:2px,color:#F5B942
+    class P1,P2,P3,P4 phase
+    class C1 first
+```
+
 ## Risk Prioritization Rationale
 
 ### Why AC-6 (Least Privilege) was prioritized first
